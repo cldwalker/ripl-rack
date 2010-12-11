@@ -17,6 +17,14 @@ module Ripl::Rack
     def rack
       Commands.rack
     end
+
+    def rackit!
+      Ripl::Rack::Commands.module_eval do
+        rack.actions.each do |meth|
+          define_method(meth) {|*args| rack.send(meth, *args) }
+        end
+      end
+    end
   end
 
   class App
@@ -30,6 +38,10 @@ module Ripl::Rack
       end
       @app = Kernel.eval("Rack::Builder.new { #{File.read(config_ru)} }")
       @env = ENV['RACK_ENV'] || 'development'
+    end
+
+    def actions
+      ::Rack::Test::Methods::METHODS
     end
   end
 end
