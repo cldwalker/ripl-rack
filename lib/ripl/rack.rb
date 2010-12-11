@@ -3,6 +3,8 @@ require 'rack'
 require 'rack/test'
 
 module Ripl::Rack
+  VERSION = '0.1.0'
+
   def before_loop
     Commands.rack
     puts "Loading #{Commands.rack.env} environment (Rack #{Rack.version})"

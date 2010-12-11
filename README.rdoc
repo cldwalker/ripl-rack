@@ -1,0 +1,50 @@
+== Description
+This ripl plugin provides a console for rack apps.
+
+== Install
+Install the gem with:
+
+    sudo gem install ripl-rack
+
+== Usage
+
+As an executable:
+
+    $ ripl rack
+    Loading development environment (Rack 1.1)
+
+As a plugin:
+
+    $ ripl rails -r ripl/rack
+
+Now let's use it:
+
+    $ ripl rack
+    Loading development environment (Rack 1.1)
+
+    # your rack app thanks to Rack::Test
+    >> rack
+    #<Ripl::Rack::App:0x3f8cc @env="development" ... >
+
+    # Make http requests
+    >> rack.get '/'
+    >> rack.post '/login', :user => 'x', :password => 'y'
+    ...
+
+    # To see what actions you can perform on your app
+    >> rack.actions
+    => [:request, :get, :post, :put, :delete, :head, :follow_redirect!, :header, :set_cookie,
+    :clear_cookies, :authorize, :basic_authorize, :digest_authorize, :last_response, :last_request]
+
+    # To perform these actions even more naturally
+    >> rackit!
+    => [:request, :get, :post, :put, :delete, :head, :follow_redirect!, :header, :set_cookie,
+    :clear_cookies, :authorize, :basic_authorize, :digest_authorize, :last_response, :last_request]
+
+    # All of the above methods are now available at the top level
+    >> get '/'
+    >> post '/login', :user => 'x', :password => 'y'
+    ....
+
+== Credits
+* Thanks to racksh for interesting rack-test bits
