@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Gabriel Horner"]
   s.email       = "gabriel.horner@gmail.com"
   s.homepage    = "http://github.com/cldwalker/ripl-rack"
-  s.summary = "A script/console for rack apps"
-  s.description =  ""
+  s.summary = "A script/console for rack apps using ripl"
+  s.description =  "This ripl plugin provides a console for rack apps."
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project = 'tagaholic'
   s.executables = ['ripl-rack']
