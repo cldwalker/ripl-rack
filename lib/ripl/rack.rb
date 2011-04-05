@@ -45,5 +45,5 @@ module Ripl::Rack
   end
 end
 
-Ripl::Shell.send :include, Ripl::Rack
-Ripl::Commands.send :include, Ripl::Rack::Commands
+Ripl::Shell.include Ripl::Rack
+Ripl::Commands.include Ripl::Rack::Commands
