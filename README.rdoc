@@ -4,7 +4,7 @@ This ripl plugin provides a console for rack apps.
 == Install
 Install the gem with:
 
-    sudo gem install ripl-rack
+    gem install ripl-rack
 
 == Usage
 
@@ -45,6 +45,10 @@ Now let's use it:
     >> get '/'
     >> post '/login', :user => 'x', :password => 'y'
     ....
+
+To have rack actions in your top-level by default add the following to ~/.riplrc:
+
+    Ripl.config[:rackit] = true
 
 == Credits
 * Thanks to racksh for interesting rack-test bits
