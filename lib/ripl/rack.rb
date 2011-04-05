@@ -30,12 +30,11 @@ module Ripl::Rack
   class App
     include Rack::Test::Methods
     attr_reader :app, :env
+    MESSAGE = "Rack config file '%s' doesn't exist. Specify with ENV['RACK_CONFIG']"
 
     def initialize(config_ru=nil)
       config_ru ||= ENV['RACK_CONFIG'] || 'config.ru'
-      unless File.exists? config_ru
-        abort "Rack config file '#{config_ru}' doesn't exist. Specify with ENV['RACK_CONFIG']"
-      end
+      abort(MESSAGE % config_ru) unless File.exists? config_ru
       @app = Kernel.eval("Rack::Builder.new { #{File.read(config_ru)} }")
       @env = ENV['RACK_ENV'] || 'development'
     end
