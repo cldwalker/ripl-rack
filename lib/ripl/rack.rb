@@ -7,17 +7,15 @@ module Ripl::Rack
 
   def before_loop
     Commands.rack
+    Commands.rackit! if config[:rackit]
     puts "Loading #{Commands.rack.env} environment (Rack #{Rack.version})"
     super
   end
 
   module Commands
-    def self.rack
-      @rack ||= Ripl::Rack::App.new
-    end
-
+    extend self
     def rack
-      Commands.rack
+      @rack ||= Ripl::Rack::App.new
     end
 
     def rackit!
