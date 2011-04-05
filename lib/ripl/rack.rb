@@ -3,7 +3,7 @@ require 'rack'
 require 'rack/test'
 
 module Ripl::Rack
-  VERSION = '0.1.0'
+  VERSION = '0.2.0'
 
   def before_loop
     Commands.rack
