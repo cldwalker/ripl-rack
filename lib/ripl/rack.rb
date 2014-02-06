@@ -15,7 +15,7 @@ module Ripl::Rack
   module Commands
     extend self
     def rack
-      @rack ||= Ripl::Rack::App.new
+      Ripl::Rack::App.instance
     end
 
     def rackit!
@@ -41,6 +41,10 @@ module Ripl::Rack
 
     def actions
       ::Rack::Test::Methods::METHODS
+    end
+
+    def self.instance
+      @instance ||= self.new
     end
   end
 end
