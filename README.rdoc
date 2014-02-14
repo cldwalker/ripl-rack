@@ -52,3 +52,4 @@ To have rack actions in your top-level by default add the following to ~/.riplrc
 
 == Credits
 * Thanks to racksh for interesting rack-test bits
+* Thanks to @kukushkin for fixing a reload bug
