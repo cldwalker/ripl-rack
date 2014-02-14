@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 require 'rubygems' unless Object.const_defined?(:Gem)
 require File.dirname(__FILE__) + "/lib/ripl/rack"
- 
+
 Gem::Specification.new do |s|
   s.name        = "ripl-rack"
   s.version     = Ripl::Rack::VERSION
@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project = 'tagaholic'
   s.executables = ['ripl-rack']
-  s.add_dependency 'ripl', '>= 0.3.5'
+  s.add_dependency 'ripl', '>= 0.7.0'
   s.add_dependency 'rack', '>= 1.0'
-  s.add_dependency 'rack-test', '>= 0.5'
-  s.files = Dir.glob(%w[{lib,test}/**/*.rb bin/* [A-Z]*.{txt,rdoc} ext/**/*.{rb,c} **/deps.rip]) + %w{Rakefile .gemspec}
+  s.add_dependency 'rack-test', '~> 0.6.2'
+  s.files = Dir.glob(%w[{lib,test}/**/*.rb bin/* [A-Z]*.{txt,rdoc} ext/**/*.{rb,c}]) + %w{Rakefile .gemspec}
   s.extra_rdoc_files = ["README.rdoc", "LICENSE.txt"]
   s.license = 'MIT'
 end
